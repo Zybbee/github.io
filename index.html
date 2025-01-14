@@ -62,21 +62,17 @@
     <input type="text" name="q" id="duckduckgo-search-box" class="search-box" placeholder="Sök med DuckDuckGo..." required>
     <input type="submit" value="Sök" style="flex-shrink: 0;">
   </form>
-
-  <!-- Google Search Form -->
-  <form id="google-form" action="https://www.google.com/search" method="get" style="flex-grow: 1;">
-    <input type="text" name="q" id="google-search-box" class="search-box" placeholder="Sök på Google..." required>
-    <input type="submit" value="Sök" style="flex-shrink: 0;">
-  </form>
 </div>
 
 <div class="container">
   <div class="category"><h2>Flashback</h2></div>
   <div class="link"><a href="https://www.flashback.org/usercp.php">Kontrollpanel</a></div>
   <div class="link"><a href="https://www.flashback.org/f249">Aktuella Brott</a></div>
-  <div class="link"><a href="https://www.flashback.org/aktuella-amnen">Aktuella ämnen</a></div>
+  <div class="link"><a href="https://www.flashback.org/aktuella-amnen/">Aktuella ämnen</a></div>
   <div class="link"><a href="https://www.flashback.org/f269-brott-och-brottsbekampning">Brott och Brottsb</a></div>
-
+  <div class="link"><a href="https://www.flashback.org/f26-juridik">Juridik</a></div>
+  <div class="link"><a href="hhttps://www.flashback.org/populara-amnen/">Populära Ämnen</a></div>
+	
   <div class="category"><h2>Nyheter</h2></div>
   <div class="link"><a href="https://www.svt.se/nyheter">SVT Nyheter</a></div>
   <div class="link"><a href="https://www.svt.se/nyheter/lokalt/vasternorrland/">SVT Västernorrland</a></div>
@@ -127,7 +123,6 @@ function clearSearchBox(event) {
 
 // Lägg till eventlyssnare för formulären
 document.getElementById('duckduckgo-form').addEventListener('submit', clearSearchBox);
-document.getElementById('google-form').addEventListener('submit', clearSearchBox);
 </script>
 </body>
 </html>

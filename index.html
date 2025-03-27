@@ -9,7 +9,10 @@
     font-family: Arial, sans-serif; 
     background-color: #121212; 
     color: #ffffff; 
-    opacity: 0.85; /* Lägg till opacitet här */
+    opacity: 0.85;
+    background-image: url('bilder/DN-C87A0343web.jpg');
+    background-size: cover;
+    background-attachment: fixed;
   }
   .container { 
     padding: 0; 
@@ -17,57 +20,75 @@
     display: flex; 
     flex-wrap: wrap; 
     justify-content: space-between; 
-    opacity: 0.95; /* Lägg till opacitet här */
+    opacity: 0.95;
   }
-  body { font-family: Arial, sans-serif; background-color: #121212; color: #ffffff; }
-  .container { padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: space-between; }
   .category { width: 85%; }
-  .link { background-color: #0A84FF; padding: 5px; margin: 5px 0; border-radius: 2px; text-align: left; width: calc(50% - 12px); box-sizing: border-box; }
-  a { text-decoration: none; color: white; font-size: 13px; display: block; }
-  h2 { color: #0A84FF; font-size: 15px; margin-left: 5px;     
-  background-color: #333333; /* Mörkgrå färg */
-    display: inline-block; /* Gör så att bakgrundsfärgen endast täcker texten */
-    padding: 0 6px; /* Lägg till lite utrymme runt texten */
-	}
-.search-container {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  width: 100%; /* Ändrar bredden till hela sidbredden */
-  box-sizing: border-box; /* För att ta hänsyn till eventuell padding */
-}
-.search-box {
-  flex-grow: 1;
-  background-color: #333333;
-  color: #40E0D0;
-  border: none;
-  padding: 5px;
-  margin-right: 5px;
-  width: 100%; /* Gör sökboxen 100% bred inom sin container */
-}
+  .link { 
+    background-color: #0A84FF; 
+    padding: 5px; 
+    margin: 5px 0; 
+    border-radius: 2px; 
+    text-align: left; 
+    width: calc(50% - 12px); 
+    box-sizing: border-box; 
+  }
+  a { 
+    text-decoration: none; 
+    color: white; 
+    font-size: 13px; 
+    display: block; 
+  }
+  h2 { 
+    color: #0A84FF; 
+    font-size: 15px; 
+    margin-left: 5px;     
+    background-color: #333333; 
+    display: inline-block; 
+    padding: 0 6px; 
+  }
+  .search-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .search-box {
+    flex-grow: 1;
+    background-color: #333333;
+    color: #40E0D0;
+    border: none;
+    padding: 5px;
+    width: 100%;
+  }
   .search-box:focus {
     background-color: #cccccc;
     color: #006666;
   }
-input[type="submit"] {
-  padding: 5px;
-  border: none;
-  background-color: #008080;
-  color: silver;
-  flex-shrink: 0;
-}
-    body {
-    background-image: url('bilder/DN-C87A0343web.jpg');
-    background-size: cover;
-    background-attachment: fixed;
+  input[type="submit"] {
+    padding: 5px;
+    border: none;
+    background-color: #008080;
+    color: silver;
+    flex-shrink: 0;
+  }
+  .search-form {
+    display: flex;
+    width: 48%;
   }
 </style>
 </head>
 <body>
 <div class="search-container">
-  <!-- DuckDuckGo Search Form -->
-  <form id="duckduckgo-form" action="https://duckduckgo.com/" method="get" style="width: 100%; display: flex;">
-    <input type="text" name="q" id="duckduckgo-search-box" class="search-box" placeholder="Sök med DuckDuckGo..." required>
+  <!-- Brave Search Form -->
+  <form id="brave-form" class="search-form" action="https://search.brave.com/search" method="get">
+    <input type="text" name="q" class="search-box" placeholder="Sök med Brave..." required>
+    <input type="submit" value="Sök">
+  </form>
+  
+  <!-- Startpage Search Form -->
+  <form id="startpage-form" class="search-form" action="https://www.startpage.com/sp/search" method="get">
+    <input type="text" name="query" class="search-box" placeholder="Sök med Startpage..." required>
     <input type="submit" value="Sök">
   </form>
 </div>
@@ -80,7 +101,7 @@ input[type="submit"] {
   <div class="link"><a href="https://www.flashback.org/f269-brott-och-brottsbekampning">Brott och Brottsb</a></div>
   <div class="link"><a href="https://www.flashback.org/f26-juridik">Juridik</a></div>
   <div class="link"><a href="https://www.flashback.org/populara-amnen/">Populära Ämnen</a></div>
-	
+
   <div class="category"><h2>Nyheter</h2></div>
   <div class="link"><a href="https://www.svt.se/nyheter">SVT Nyheter</a></div>
   <div class="link"><a href="https://www.svt.se/nyheter/lokalt/vasternorrland/">SVT Västernorrland</a></div>
@@ -88,50 +109,22 @@ input[type="submit"] {
   <div class="link"><a href="https://www.st.nu">Sundsvalls Tidning</a></div>
   <div class="link"><a href="https://www.kvartal.se">Kvartal</a></div>
   <div class="link"><a href="https://www.dn.se/">Dagens Nyheter</a></div>
-
-  <div class="category"><h2>Scroll/Social media</h2></div>
-  <div class="link"><a href="https://www.reddit.com/">Reddit</a></div>
-  <div class="link"><a href="https://bsky.app/">Bluesky</a></div>
-  <div class="link"><a href="https://x.com">X - tidigare Twitter</a></div>
-  <div class="link"><a href="https://www.youtube.com">YouTube</a></div>
-
-  <div class="category"><h2>Ekonomi</h2></div>
-  <div class="link"><a href="https://www.skandiabanken.se">Skandiabanken</a></div>
-  <div class="link"><a href="https://www.avanza.se">Avanza</a></div>
-  <div class="link"><a href="https://secure246.lansforsakringar.se/nim/">LF Bank</a></div>
-  
-  <div class="category"><h2>AI-verktyg</h2></div>
-  <div class="link"><a href="https://copilot.microsoft.com">Microsoft Copilot</a></div>
-  <div class="link"><a href="https://chatgpt.com">ChatGPT</a></div>
-  <div class="link"><a href="https://gemini.google.com/app">Google Gemini</a></div>
-
-  <div class="category"><h2>Serversidor</h2></div>
-  <div class="link"><a href="http://192.168.50.51:8080">qBittorrent</a></div>
 </div>
 
 <script>
 // Funktion för att rensa sökfältet med en fördröjning
 function clearSearchBox(event) {
-  // Förhindra formulärets standardbeteende
   event.preventDefault();
   const form = event.target;
   const searchBox = form.querySelector('.search-box');
-  
-  // Spara söktermen
   const searchTerm = searchBox.value;
-
-  // Skicka formuläret manuellt
   form.submit();
-
-  // Rensa sökfältet efter en kort fördröjning
-  setTimeout(() => {
-    searchBox.value = '';
-  }, 100); // Fördröjning på 100 millisekunder
+  setTimeout(() => { searchBox.value = ''; }, 100);
 }
 
 // Lägg till eventlyssnare för formulären
-document.getElementById('duckduckgo-form').addEventListener('submit', clearSearchBox);
+document.getElementById('brave-form').addEventListener('submit', clearSearchBox);
+document.getElementById('startpage-form').addEventListener('submit', clearSearchBox);
 </script>
 </body>
 </html>
-

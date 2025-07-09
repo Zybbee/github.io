@@ -81,14 +81,29 @@
 <body>
 <div class="search-container">
   <!-- Brave Search Form -->
-  <form id="brave-form" class="search-form" action="https://search.brave.com/search" method="get">
+  <form id="brave-form" class="search-form" action="https://search.brave.com/search" method="get" target="_self">
     <input type="text" name="q" class="search-box" placeholder="Sök med Brave..." required>
     <input type="submit" value="Sök">
   </form>
-  
+
   <!-- Startpage Search Form -->
-  <form id="startpage-form" class="search-form" action="https://www.startpage.com/sp/search" method="get">
+  <form id="startpage-form" class="search-form" action="https://www.startpage.com/sp/search" method="get" target="_self">
     <input type="text" name="query" class="search-box" placeholder="Sök med Startpage..." required>
+    <input type="submit" value="Sök">
+  </form>
+</div>
+
+<!-- Ny rad: Google Search -->
+<div class="search-container">
+  <!-- Google Search Form -->
+  <form id="google-form" class="search-form" action="https://www.google.com/search" method="get" target="_self">
+    <input type="text" name="q" class="search-box" placeholder="Sök med Google..." required>
+    <input type="submit" value="Sök">
+  </form>
+
+  <!-- Multi-search Form -->
+  <form id="multi-form" class="search-form">
+    <input type="text" id="multi-query" class="search-box" placeholder="Sök i alla tre..." required>
     <input type="submit" value="Sök">
   </form>
 </div>
@@ -122,7 +137,7 @@
 </div>
 
 <script>
-// Funktion för att rensa sökfältet med en fördröjning
+// Rensar sökfältet med fördröjning efter sökning
 function clearSearchBox(event) {
   event.preventDefault();
   const form = event.target;
@@ -132,9 +147,28 @@ function clearSearchBox(event) {
   setTimeout(() => { searchBox.value = ''; }, 100);
 }
 
-// Lägg till eventlyssnare för formulären
+// Eventlyssnare för individuella formulär
 document.getElementById('brave-form').addEventListener('submit', clearSearchBox);
 document.getElementById('startpage-form').addEventListener('submit', clearSearchBox);
+document.getElementById('google-form').addEventListener('submit', clearSearchBox);
+
+// Multi-sökning i nya flikar
+document.getElementById('multi-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const query = document.getElementById('multi-query').value.trim();
+  if (query === '') return;
+
+  const urls = [
+    `https://search.brave.com/search?q=${encodeURIComponent(query)}`,
+    `https://www.startpage.com/sp/search?query=${encodeURIComponent(query)}`,
+    `https://www.google.com/search?q=${encodeURIComponent(query)}`
+  ];
+
+  urls.forEach(url => window.open(url, '_blank'));
+
+  // Rensa efter 0.2 sek
+  setTimeout(() => { document.getElementById('multi-query').value = ''; }, 200);
+});
 </script>
 </body>
 </html>
